@@ -6,6 +6,7 @@
 // First, take a look at the index.html file to see the items you
 // will need to work with.
 
+'use strict';
 
 $(function() {
 	generateButtons();
@@ -25,7 +26,8 @@ $(function() {
 // Hint: apply default styling to all buttons, and then apply only 'active' (btn-danger)
 // styling to the selected button.
 function setButtonStyle(selectedButton, buttons) {
-
+	buttons.attr('class', 'btn btn-primary');
+	selectedButton.attr('class', 'btn btn-danger');
 }
 
 /*
@@ -36,10 +38,13 @@ function setButtonStyle(selectedButton, buttons) {
 		-- Remember you can pass in a function to fadeIn/fadeOut. Use it to set attributes during transition.
 */
 function moveImageIntoFrame(button) {
-	console.log('here');
+	var image = button.data('imageKey');
+	console.log(image.src);
+	var htmlImage = $('.img-item');
+	htmlImage.attr('src', image.src);
 }
 
-
+// test
 // HTML output example: 	<button type='button' class='btn btn-primary' value='Skyline'>Skyline</button>
 // 'Active' button has 'btn-danger' instead.
 function generateButtons() {
